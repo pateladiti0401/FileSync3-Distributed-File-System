@@ -1,30 +1,49 @@
+# 🗂️ FileSync3: Distributed File System
 
+**FileSync3** is a distributed file system that enables seamless file management between a client and three dedicated servers: `Smain`, `Spdf`, and `Stext`. While users interact solely with `Smain`, it intelligently routes `.c`, `.pdf`, and `.txt` files to their respective servers behind the scenes.
+
+---
+
+## 🚀 Features
+
+- 📤 **Upload Files**  
+  Upload `.c`, `.pdf`, or `.txt` files to `Smain`.
+
+- 📥 **Download Files**  
+  Retrieve files directly from `Smain`.
+
+- ❌ **Remove Files**  
+  Delete files from the server and retrieve them locally.
+
+- 🗜️ **Create Tar Archives**  
+  Generate `.tar` files by extension and download them.
+
+- 📍 **Display File Paths**  
+  Show the full path of files on the server.
+
+---
+
+## 🧠 Server Distribution Logic
+
+- `.c` files → Stored on **Smain**
+- `.pdf` files → Transferred to **Spdf**
+- `.txt` files → Transferred to **Stext**
+
+All operations are client-facing only on `Smain`; users are unaware of the distribution mechanics.
+
+---
+
+## 🛠️ Installation & Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/pateladiti0401/FileSync3-Distributed-File-System.git
+cd FileSync3-Distributed-File-System
 # FileSync3: Distributed File System
+```
 
-FileSync3 is a distributed file system that enables seamless file management between a client and three servers (Smain, Spdf, and Stext). The system supports multiple client connections, allowing users to upload, download, and manage files across different servers. While clients interact only with the Smain server, Smain handles the distribution of files to the appropriate servers in the background.
-
-## Features
-- **Upload Files:** Clients can upload `.c`, `.pdf`, and `.txt` files to the Smain server.
-- **Download Files:** Clients can download files from Smain.
-- **Remove Files:** Clients can delete files stored on Smain and retrieve them to their local directory.
-- **Create Tar Files:** Clients can create a tar archive of specific file types and download it from Smain.
-- **Path Display:** Clients can display the full path of a file.
-
-## Server Distribution
-- `.c` files are stored locally on Smain.
-- `.pdf` files are transferred to the Spdf server.
-- `.txt` files are transferred to the Stext server.
-
-All file transfers to Spdf and Stext are handled by Smain, and clients are unaware of the presence of these servers.
-
-## Installation and Setup
-1. **Clone the Repository:**
-    ```bash
-    git clone https://github.com/pateladiti0401/FileSync3-Distributed-File-System.git
-    cd FileSync3-Distributed-File-System
-    ```
-
-2. **Compile the Servers and Client:**
+### 2. **Compile the Servers and Client:**
     ```bash
     gcc -o smain Smain.c
     gcc -o spdf Spdf.c
@@ -32,7 +51,7 @@ All file transfers to Spdf and Stext are handled by Smain, and clients are unawa
     gcc -o client client.c
     ```
 
-3. **Start the Servers:**
+###  3. **Start the Servers:**
     - Start Smain server:
       ```bash
       ./smain
@@ -46,7 +65,7 @@ All file transfers to Spdf and Stext are handled by Smain, and clients are unawa
       ./stext
       ```
 
-4. **Run the Client:**
+###  4. **Run the Client:**
     ```bash
     ./client
     ```
