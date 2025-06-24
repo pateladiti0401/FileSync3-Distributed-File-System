@@ -109,6 +109,3 @@ These files can be uploaded, downloaded, and managed using the client commands.
 - `spdf.c` - Manages the storage of PDF files.
 - `stext.c` - Manages the storage of text files.
 - `client.c` - Client program to interact with the Smain server.
-
-## License
-This project is licensed under the MIT License.
